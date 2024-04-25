@@ -1,40 +1,41 @@
+import lineas_texto
 from Binarytree import BinaryTree
-from listasdobles import TextEditor
-texto_1=TextEditor()
-texto_2=TextEditor()
-texto_3=TextEditor()
-texto_4=TextEditor()
-texto_5=TextEditor()
-texto_6=TextEditor()
-texto_7=TextEditor()
-texto_8=TextEditor()
-texto_9=TextEditor()
-texto_10=TextEditor()
 
-texto_1.load_file("texto 1.txt")
-texto_2.load_file("texto 2.txt")
-texto_3.load_file("texto 3.txt")
-texto_4.load_file("texto 4.txt")
-texto_5.load_file("texto 5.txt")
-texto_6.load_file("texto 6.txt")
-texto_7.load_file("texto 7.txt")
-texto_8.load_file("texto 8.txt")
-texto_9.load_file("texto 9.txt")
-texto_10.load_file("texto 10.txt")
+def cargar(texto,archivo):
+    with open(f"{archivo}.txt", "r") as archivo:
+        lineas = archivo.readlines()
+        for line in lineas:
+            texto.append(line.strip())
+
+texto=[]
+cargar(texto,"texto")
+
+texto_1=[]
+cargar(texto_1,"texto 1")
+texto_2=[]
+cargar(texto_2,"texto 2")
+texto_3=[]
+cargar(texto_3,"texto 3")
+texto_4=[]
+cargar(texto_4,"texto 4")
+texto_5=[]
+cargar(texto_5,"texto 5")
+texto_6=[]
+cargar(texto_6,"texto 6")
+texto_7=[]
+cargar(texto_7,"texto 7")
+texto_8=[]
+cargar(texto_8,"texto 8")
+texto_9=[]
+cargar(texto_9,"texto 9")
+texto_10=[]
+cargar(texto_10,"texto 10")
 
 
 
 
 
-"""
-a=BinaryTree()
-a.insert("Hola")
-a.insert("a")
-a.insert("todos")
-a.insert("como")
-a.insert("estan")
 
-print("preorde", a.preorder())
-print("inorden", a.inorder())
-print("post", a.postorder())
-"""
+print(texto)
+
+

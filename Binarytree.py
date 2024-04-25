@@ -1,4 +1,5 @@
 from node import Node
+import matplotlib.pyplot as plt
 
 class BinaryTree:
     def __init__(self):
@@ -65,3 +66,23 @@ class BinaryTree:
             return self._buscar_recursive(value, current_node.left, path)
         else:
             return self._buscar_recursive(value, current_node.right, path)
+
+    def graficar_arbol(self):
+        if self.root is None:
+            print("Árbol vacío")
+            return
+
+        self._graficar_arbol_recursive(self.root, 0, 0)
+
+        plt.axis('off')
+        plt.show()
+
+    def _graficar_arbol_recursive(self, node, x, y):
+        if node is not None:
+            plt.text(x, y, str(node.value), style='italic', weight='bold', ha='center', va='center')
+            if node.left is not None:
+                plt.plot([x, x - 1], [y - 1, y - 2], linewidth=1, color='blue')
+                self._graficar_arbol_recursive(node.left, x - 1, y - 2)
+            if node.right is not None:
+                plt.plot([x, x + 1], [y - 1, y - 2], linewidth=1, color='blue')
+                self._graficar_arbol_recursive(node.right, x + 1, y - 2)
